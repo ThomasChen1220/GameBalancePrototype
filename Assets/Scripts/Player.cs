@@ -21,20 +21,17 @@ public class Player : MovingObject
     public AudioClip gameOverSound;
 
     private Animator animator;
-    private int food;
+    public int food;
     private Vector2 touchOrigin = -Vector2.one;
     // Start is called before the first frame update
     protected override void Start()
     {
         animator = GetComponent<Animator>();
 
+        foodText = GameObject.Find("foodText").GetComponent<Text>();
         food = GameManager.instance.playerFoodPoints;
+        foodText.text = "Food " + food;
         base.Start();
-    }
-
-    private void OnDisable()
-    {
-        GameManager.instance.playerFoodPoints = food;
     }
 
     // Update is called once per frame
@@ -90,7 +87,11 @@ public class Player : MovingObject
             GameManager.instance.GameOver();
         }
     }
-
+    void OnLevelWasLoaded(int index)
+    {
+        food = 10;
+        transform.position = new Vector3(0.5f, 0.5f, 0);
+    }
     protected override void AttemptMove<T>(int xDir, int yDir)
     {
         food--;
@@ -123,19 +124,21 @@ public class Player : MovingObject
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.tag == "Exit") {
+            if (GameManager.instance.gameOver)
+                return;
             Invoke("Restart", restartLevelDelay);
             enabled = false;
         }
         if (other.tag == "Food") {
             food += pointPerFood;
+            food = Mathf.Min(food, 20);
             other.gameObject.SetActive(false);
             foodText.text = "+" + pointPerFood + "Food " + food;
             SoundManager.instance.RandomizeSfx(eatSound1, eatSound2);
         }
         if (other.tag == "Soda") {
-            food += pointPerSoda;
+            transform.Find("mask").transform.localScale *= 2;
             other.gameObject.SetActive(false);
-            foodText.text = "+"+pointPerSoda+"Food " + food;
             SoundManager.instance.RandomizeSfx(drinkSound1, drinkSound2);
         }
     }

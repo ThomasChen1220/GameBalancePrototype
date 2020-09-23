@@ -1,0 +1,48 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fdc5e1eccedb29e4894bbfab99032590, type: 3}
+  m_Name: walls
+  m_EditorClassIdentifier: 
+  m_Cells:
+  - m_Tile: {fileID: 0}
+    m_Matrix:
+      e00: 1
+      e01: 0
+      e02: 0
+      e03: 0
+      e10: 0
+      e11: 1
+      e12: 0
+      e13: 0
+      e20: 0
+      e21: 0
+      e22: 1
+      e23: 0
+      e30: 0
+      e31: 0
+      e32: 0
+      e33: 1
+    m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Pivot: {x: 0, y: 0, z: 0}
+  m_CanChangeZPosition: 0
+  m_Anchor: {x: 0.5, y: 0.5, z: 0.5}
+  m_Prefabs:
+  - {fileID: 6756588913758390303, guid: d0c5763633038d24b80df1e2a6479637, type: 3}
+  - {fileID: 765131423375957396, guid: bfabd76bdeafc0a4dac7bbbc2bc74de8, type: 3}
+  - {fileID: 2656949347211937770, guid: 7a8eba046468c184d9cdfa868f90af08, type: 3}
+  - {fileID: 3039213897341079882, guid: 130fe1699a46be1459253f11bffcab35, type: 3}
+  - {fileID: 3767300028654588039, guid: ba922625163349f46b26383079f3266c, type: 3}
+  - {fileID: 503178837726144498, guid: 641d1d428f6709f47b13f956724f20bf, type: 3}
+  - {fileID: 7457233937125079423, guid: c567ce494e53bb04190752c7184f2ccf, type: 3}
+  - {fileID: 4881970196721589977, guid: fa28c1690ca4dd24bb1f1f16d6423539, type: 3}
+  m_PerlinScale: 0.5
